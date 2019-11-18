@@ -2,7 +2,7 @@
   "profiles": {
     "MvcRoutesFinder": {
       "commandName": "Project",
-      "commandLineArgs": "-d \"C:\\Users\\gomouele\\Source\\Repos\\WebApplication1\""
+      "commandLineArgs": "-d \"C:\\Users\\gomouele\\source\\repos\\USAPropheticConvention\""
     }
   }
 }

@@ -16,13 +16,20 @@ namespace MvcRoutesFinder
 
         public bool inheritsFromController(SyntaxNode root)//, string args TODO Custom
         {
-
+            var controllerBaseClasses = new string[] { "Controller", "ApiController", "ControllerBase" };
             bool isValid = false;
 
             try
             {
-                isValid = root.DescendantNodes().OfType<BaseTypeSyntax>().First().ToString().Equals("ApiController") ||
-                  root.DescendantNodes().OfType<BaseTypeSyntax>().First().ToString().Equals("Controller");
+               var baseTypes = root.DescendantNodes().OfType<BaseTypeSyntax>().ToList();
+                if (baseTypes.Any())
+                {
+                    isValid = baseTypes.Any(b => controllerBaseClasses.Contains(b.ToString()));
+                }
+                else
+                {
+                    isValid = false;
+                }
             }
             catch (InvalidOperationException)
             {
