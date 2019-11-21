@@ -132,7 +132,10 @@ namespace MvcRoutesFinder
                 Console.WriteLine("Controller: \n" + pair.Key.Replace(pathToTrim, ""));
                 foreach (Result result in pair.Value)
                 {
-                    Console.WriteLine($"Method={result.MethodName}; Route={result.Route}; Http={string.Join(",", result.HttpMethods)}; Attributes={string.Join(",", result.Attributes)}");
+                    Console.WriteLine($"Method={result.MethodName};");
+                    Console.WriteLine($"Route={result.Route};");
+                    Console.WriteLine($"Http={string.Join(",", result.HttpMethods)};");
+                    Console.WriteLine($"Attributes={string.Join(",", result.Attributes)}");
                 }
 
                 Console.WriteLine("\n======================\n");
