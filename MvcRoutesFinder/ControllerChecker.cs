@@ -24,7 +24,13 @@ namespace MvcRoutesFinder
                var baseTypes = root.DescendantNodes().OfType<BaseTypeSyntax>().ToList();
                 if (baseTypes.Any())
                 {
-                    isValid = baseTypes.Any(b => controllerBaseClasses.Contains(b.ToString()));
+                    foreach (var baseClass in controllerBaseClasses)
+                    {
+                        if (baseTypes.Any(c => c.ToString().Contains(baseClass, StringComparison.OrdinalIgnoreCase)))
+                        {
+                            return true;
+                        }
+                    }
                 }
                 else
                 {
